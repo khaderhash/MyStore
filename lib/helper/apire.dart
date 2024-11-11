@@ -22,8 +22,8 @@ class api {
       headers.addAll({'Authorization': 'Bearer $token'});
     }
 
-    http.Response responss = await http.post(Uri.parse(uri), body: body
-        //https://fakestoreapi.com/products
+    http.Response responss = await http.post(Uri.parse(uri),
+        body: body, headers: headers //https://fakestoreapi.com/products
         );
     Map<String, dynamic> data = jsonDecode(responss.body);
     return data;
