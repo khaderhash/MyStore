@@ -50,12 +50,13 @@ class api {
     if (token != null) {
       headers.addAll({'Authorization': 'Bearer $token'});
     }
-
+    print("url = $uri , body = $body , token = $token ");
     http.Response responss = await http.post(Uri.parse(uri),
         body: body, headers: headers //https://fakestoreapi.com/products
         );
     if (responss.statusCode == 200) {
       Map<String, dynamic> data = jsonDecode(responss.body);
+      print(data);
       return data;
     } else {
       throw Exception(

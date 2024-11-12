@@ -82,11 +82,11 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
               ),
               conclickclass(
                 Texts: 'Update',
-                ontap: () {
+                ontap: () async {
                   incall = true;
                   setState(() {});
                   try {
-                    name(product);
+                    await updateeProductt(product);
                     print("success");
                   } on Exception catch (e) {
                     ;
@@ -102,13 +102,14 @@ class _UpdateProductPageState extends State<UpdateProductPage> {
     );
   }
 
-  void name(ProductModel product) {
-    UpdateProductService().addproduct(
-        title: ProductName!,
-        price: price!,
-        description: desc!,
-        image: image!,
-        category: product.category);
+  Future<void> updateeProductt(ProductModel product) async {
+    await UpdateProductService().addproduct(
+        title: ProductName == null ? product.title : ProductName!,
+        price: price == null ? product.price.toString() : price!,
+        description: desc == null ? product.description : desc!,
+        image: image == null ? product.image : image!,
+        category: product.category,
+        id: product.id.toString());
     incall = false;
   }
 }
