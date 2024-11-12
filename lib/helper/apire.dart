@@ -15,6 +15,7 @@ class api {
     );
     if (response.statusCode == 200) {
       List<dynamic> data = jsonDecode(response.body);
+      return data;
     } else {
       throw Exception("exception ${response.statusCode}");
     }
