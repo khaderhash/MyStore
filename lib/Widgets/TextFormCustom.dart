@@ -5,13 +5,17 @@ class textformfieldclass extends StatelessWidget {
       {super.key,
       this.obscureTe = false,
       required this.hinttext,
-      this.onchange});
+      this.onchange,
+        required this.keyboard
+      });
   String hinttext;
   bool? obscureTe;
+  TextInputType keyboard;
   Function(String)? onchange;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: keyboard,
         obscureText: obscureTe!,
         validator: (value) {
           if (value!.isEmpty) {
