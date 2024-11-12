@@ -6,8 +6,7 @@ class textformfieldclass extends StatelessWidget {
       this.obscureTe = false,
       required this.hinttext,
       this.onchange,
-        required this.keyboard
-      });
+      required this.keyboard});
   String hinttext;
   bool? obscureTe;
   TextInputType keyboard;
@@ -15,7 +14,7 @@ class textformfieldclass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      keyboardType: keyboard,
+        keyboardType: keyboard,
         obscureText: obscureTe!,
         validator: (value) {
           if (value!.isEmpty) {

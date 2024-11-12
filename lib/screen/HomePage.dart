@@ -40,19 +40,21 @@ class HomePage extends StatelessWidget {
             future: getproduct().GetAllProduct(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                List<ProductModel> products=snapshot.data!;
+                List<ProductModel> products = snapshot.data!;
                 return GridView.builder(
                   itemCount: products.length,
-                    clipBehavior: Clip.none,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      childAspectRatio: 1.5,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 100,
-                    ),
-                    itemBuilder: (context, index) {
-                      return CustomCard(product:products[index] ,);
-                    },
+                  clipBehavior: Clip.none,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 1.5,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 100,
+                  ),
+                  itemBuilder: (context, index) {
+                    return CustomCard(
+                      product: products[index],
+                    );
+                  },
                 );
               } else {
                 return CircularProgressIndicator();

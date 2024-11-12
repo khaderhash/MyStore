@@ -4,17 +4,16 @@ import 'package:store/Model/product_model.dart';
 import 'package:store/screen/updateproduct.dart';
 
 class CustomCard extends StatelessWidget {
-   CustomCard({
-  required this.product,
+  CustomCard({
+    required this.product,
     super.key,
   });
-ProductModel product;
+  ProductModel product;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-Navigator.pushNamed(context, UpdateProductPage.id,arguments: product);
-
+        Navigator.pushNamed(context, UpdateProductPage.id, arguments: product);
       },
       child: Stack(
         clipBehavior: Clip.none,
@@ -31,12 +30,13 @@ Navigator.pushNamed(context, UpdateProductPage.id,arguments: product);
               color: Colors.white,
               elevation: 20,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(product.title.substring(0,6),
+                      Text(product.title.substring(0, 6),
                           style: TextStyle(color: Colors.grey, fontSize: 16)),
                       SizedBox(
                         height: 4,
@@ -45,7 +45,7 @@ Navigator.pushNamed(context, UpdateProductPage.id,arguments: product);
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                           r'$''${product.price.toString()}',
+                            r'$' '${product.price.toString()}',
                             style: TextStyle(fontSize: 16),
                           ),
                           Icon(
@@ -63,7 +63,7 @@ Navigator.pushNamed(context, UpdateProductPage.id,arguments: product);
               right: 32,
               bottom: 85,
               child: Image.network(
-product.image,
+                product.image,
                 height: 100,
                 width: 100,
               ))

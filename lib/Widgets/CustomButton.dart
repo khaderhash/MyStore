@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class conclickclass extends StatelessWidget {
   conclickclass({super.key, required this.Texts, this.ontap});
   VoidCallback? ontap;
@@ -16,9 +15,9 @@ class conclickclass extends StatelessWidget {
         height: 60,
         child: Center(
             child: Text(
-              Texts,
-              style: TextStyle(fontSize: 22,color: Colors.white12),
-            )),
+          Texts,
+          style: TextStyle(fontSize: 22, color: Colors.white12),
+        )),
       ),
     );
   }

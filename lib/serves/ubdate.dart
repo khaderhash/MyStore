@@ -8,7 +8,7 @@ class UpdateProductService {
       required String description,
       required String image,
       required String category}) async {
-    Map<String, dynamic> myproduct = await api().Post(
+    Map<String, dynamic> myproduct = await api().Put(
       uri: 'https://fakestoreapi.com/products',
       body: {
         'title': title,
