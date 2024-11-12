@@ -1,7 +1,7 @@
 import '../Model/product_model.dart';
 import 'package:store/helper/apire.dart';
 
-class UpdateProduct {
+class UpdateProductService {
   Future<ProductModel> addproduct(
       {required String title,
       required String price,

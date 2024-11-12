@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:store/Model/product_model.dart';
 import 'package:store/Widgets/CustomButton.dart';
+import 'package:store/serves/ubdate.dart';
 
 import '../Widgets/TextFormCustom.dart';
 
@@ -8,10 +10,10 @@ class UpdateProductPage extends StatelessWidget {
     super.key,
   });
   static String id = 'update product';
-  String? ProductName, desc, image;
-  int? price;
+  String? ProductName, desc, image, price;
   @override
   Widget build(BuildContext context) {
+    ProductModel product = ModalRoute.of(context)!.settings.arguments as ProductModel;
     return Scaffold(
       appBar: AppBar(
         title: Text("update pro",
@@ -51,7 +53,7 @@ class UpdateProductPage extends StatelessWidget {
             textformfieldclass(
               keyboard: TextInputType.number,
               onchange: (p0) {
-                price = int.parse(p0);
+                price = p0;
               },
               hinttext: 'Price',
             ),
@@ -68,7 +70,10 @@ class UpdateProductPage extends StatelessWidget {
             SizedBox(
               height: 40,
             ),
-            conclickclass(Texts: 'Update'),
+            conclickclass(Texts: 'Update',ontap: () {
+              UpdateProductService().addproduct(title: ProductName!,
+                  price: price!, description: desc!, image: image!,category: product.category);
+            },),
           ],
         ),
       ),
